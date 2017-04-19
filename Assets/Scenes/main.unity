@@ -120,8 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: []
   playerSpawns:
-  - {x: -5, y: 0, z: 0}
-  - {x: 5, y: 0, z: 0}
+  - {x: 0, y: -10, z: 0}
 --- !u!4 &11805883
 Transform:
   m_ObjectHideFlags: 0
@@ -135,6 +134,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1358362138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1358362140}
+  - component: {fileID: 1358362139}
+  m_Layer: 0
+  m_Name: NPCManager
+  m_TagString: NPCManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1358362139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1358362138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92b644f136f50b04f9099856fb8ca70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numNpcs: 200
+  minAcceptableDistance: 10
+  maxNumTries: 100
+  topRightBounds: {x: 100, y: 100}
+  bottomLeftBounds: {x: -100, y: -100}
+--- !u!4 &1358362140
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1358362138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2049809880
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +191,8 @@ GameObject:
   - component: {fileID: 2049809883}
   - component: {fileID: 2049809882}
   - component: {fileID: 2049809881}
+  - component: {fileID: 2049809887}
+  - component: {fileID: 2049809886}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -195,7 +241,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -222,3 +268,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &2049809886
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2049809880}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 10
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &2049809887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2049809880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c34edad197cc6e43934971925e5d533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20

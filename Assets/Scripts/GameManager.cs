@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
 	void Start () {
         InitializePlayers();
+        Services.NPCManager.GenerateNPCS();
 	}
 	
 	// Update is called once per frame
@@ -32,14 +33,14 @@ public class GameManager : MonoBehaviour {
         Services.EventManager = new EventManager();
         Services.TaskManager = new TaskManager();
         Services.Prefabs = Resources.Load<PrefabDB>("Prefabs/Prefabs");
+        Services.NPCManager = GameObject.FindGameObjectWithTag("NPCManager").GetComponent<NPCManager>();
     }
 
     void InitializePlayers()
     {
-        players = new Player[2]
+        players = new Player[1]
         {
-            InitializePlayer(1),
-            InitializePlayer(2)
+            InitializePlayer(1)
         };
     }
 

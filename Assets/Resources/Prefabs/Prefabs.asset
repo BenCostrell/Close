@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Name: Prefabs
   m_EditorClassIdentifier: 
   player: {fileID: 1872988119417170, guid: cbff79408b806624cb1c9d249240dd4b, type: 2}
+  npc: {fileID: 1941629677072810, guid: 522417db654af08489b19c9b83833cf8, type: 2}
