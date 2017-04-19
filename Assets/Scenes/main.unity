@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: []
   playerSpawns:
-  - {x: 0, y: -10, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!4 &11805883
 Transform:
   m_ObjectHideFlags: 0
@@ -162,10 +162,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numNpcs: 200
-  minAcceptableDistance: 10
+  minAcceptableDistance: 15
   maxNumTries: 100
-  topRightBounds: {x: 100, y: 100}
-  bottomLeftBounds: {x: -100, y: -100}
+  topRightBounds: {x: 200, y: 200}
+  bottomLeftBounds: {x: -200, y: -200}
 --- !u!4 &1358362140
 Transform:
   m_ObjectHideFlags: 0
@@ -299,4 +299,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c34edad197cc6e43934971925e5d533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  expectedMaxDistance: 1600

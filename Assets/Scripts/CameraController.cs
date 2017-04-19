@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
-    public float speed;
+    public float expectedMaxDistance;
     private Rigidbody2D rb;
 
     void Awake()
@@ -24,7 +24,9 @@ public class CameraController : MonoBehaviour {
 
     void FollowPlayer()
     {
-        Vector3 playerPos = Services.GameManager.players[0].transform.position;
-        transform.position = new Vector3(playerPos.x, playerPos.y, transform.position.z);
+        Vector2 playerPos = Services.GameManager.players[0].transform.position;
+        float distance = Vector2.Distance(playerPos, transform.position);
+        Vector2 targetPos = Vector2.Lerp(transform.position, playerPos, Easing.QuadEaseOut(1 - (distance / expectedMaxDistance)));
+        transform.position = new Vector3(targetPos.x, targetPos.y, transform.position.z);
     }
 }
