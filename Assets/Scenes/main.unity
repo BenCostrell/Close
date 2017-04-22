@@ -161,11 +161,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b644f136f50b04f9099856fb8ca70c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numNpcs: 200
+  numNpcs: 150
   minAcceptableDistance: 15
   maxNumTries: 100
-  topRightBounds: {x: 200, y: 200}
-  bottomLeftBounds: {x: -200, y: -200}
+  creationRadius: 200
 --- !u!4 &1358362140
 Transform:
   m_ObjectHideFlags: 0
@@ -241,7 +240,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 35
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

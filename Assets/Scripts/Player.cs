@@ -10,7 +10,10 @@ public class Player : MonoBehaviour {
     public float accel;
     public float maxSpeed;
 
-    private Rigidbody2D rb;
+    public float dragFactor;
+
+    [HideInInspector]
+    public Rigidbody2D rb;
 
     void Awake()
     {
@@ -25,18 +28,34 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Move();
-	}
+    }
 
     void Move()
     {
-        float xInput = Input.GetAxis("Horizontal_P" + playerNum);
-        float yInput = Input.GetAxis("Vertical_P" + playerNum);
+        Vector2 inputVector = new Vector2(Input.GetAxis("Horizontal_P" + playerNum), Input.GetAxis("Vertical_P" + playerNum));
 
-        rb.AddForce(new Vector2(xInput, yInput) * accel);
+        if (inputVector.magnitude > 0.1)
+        {
+            rb.AddForce(inputVector.normalized * accel);
+            SlowDownApproach();
+        }
 
         if (rb.velocity.magnitude > maxSpeed)
         {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
+    }
+
+    void SlowDownApproach()
+    {
+        NPC npcImMostMovingTowards = Services.NPCManager.NPCThatPlayerIsMostMovingTowards();
+
+        Vector3 differenceVector = npcImMostMovingTowards.transform.position - transform.position;
+
+        Vector2 dragVector = differenceVector.normalized * dragFactor / Mathf.Pow(differenceVector.magnitude, 0.85f);
+
+        Vector2 previousVelocity = rb.velocity;
+
+        rb.velocity -= dragVector;
     }
 }
