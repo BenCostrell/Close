@@ -76,7 +76,7 @@ MonoBehaviour:
   playerNum: 0
   accel: 300
   maxSpeed: 30
-  dragFactor: 100
+  dragFactor: 90
   rb: {fileID: 0}
 --- !u!212 &212524625344709506
 SpriteRenderer:
